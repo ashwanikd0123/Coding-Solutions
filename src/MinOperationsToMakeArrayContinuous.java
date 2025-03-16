@@ -1,33 +1,37 @@
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.HashSet;
 
 public class MinOperationsToMakeArrayContinuous {
     class Solution {
 
-        private static ArrayList<Integer> getUniqueElements(int[] nums) {
+        private static int[] getUniqueElements(int[] nums) {
             HashSet<Integer> unique = new HashSet<>();
             for (int num : nums) {
                 unique.add(num);
             }
-            return new ArrayList<>(unique);
+            int[] res = new int[unique.size()];
+            int i = 0;
+            for (int x : unique) {
+                res[i++] = x;
+            }
+            return res;
         }
 
         public int minOperations(int[] nums) {
             int n = nums.length;
 
-            ArrayList<Integer> uniques = getUniqueElements(nums);
-            Collections.sort(uniques);
+            int[] uniques = getUniqueElements(nums);
+            Arrays.sort(uniques);
 
             int j = 0;
             int res = n;
-            for (int i = 0; i < uniques.size(); i++) {
-                int min = uniques.get(i);
-                while (j < uniques.size() && uniques.get(j) < min + n) {
+            for (int i = 0; i < uniques.length; i++) {
+                int min = uniques[i];
+                while (j < uniques.length && uniques[j] < min + n) {
                     j++;
                 }
 
-                int count = j - i;
+                int count = n - (j - i);
                 res = Math.min(res, n - count);
             }
 
