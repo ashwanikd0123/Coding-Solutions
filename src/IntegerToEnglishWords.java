@@ -5,15 +5,6 @@ public class IntegerToEnglishWords {
         private static HashMap<Integer, String> wordMap;
         private static HashMap<Integer, String> powerMap;
 
-        private static final String hundred = "Hundred";
-        private static final String thousand = "Thousand";
-        private static final String million = "Million";
-        private static final String billion = "Billion";
-        private static final String trillion = "Trillion";
-        private static final String quadrillion = "Quadrillion";
-        private static final String quintillion = "Quintillion";
-        private static final String sextillion = "Sextillion";
-
         static {
             wordMap = new HashMap<>();
             wordMap.put(0, "Zero");
@@ -49,14 +40,14 @@ public class IntegerToEnglishWords {
             wordMap.put(90, "Ninety");
 
             powerMap = new HashMap<>();
-            powerMap.put(2, hundred);
-            powerMap.put(3, thousand);
-            powerMap.put(6, million);
-            powerMap.put(9, billion);
-            powerMap.put(12, trillion);
-            powerMap.put(15, quadrillion);
-            powerMap.put(18, quintillion);
-            powerMap.put(21, sextillion);
+            powerMap.put(2, "Hundred");
+            powerMap.put(3, "Thousand");
+            powerMap.put(6, "Million");
+            powerMap.put(9, "Billion");
+            powerMap.put(12, "Trillion");
+            powerMap.put(15, "Quadrillion");
+            powerMap.put(18, "Quintillion");
+            powerMap.put(21, "Sextillion");
         }
 
         public String numberToWords(int num) {
@@ -97,7 +88,7 @@ public class IntegerToEnglishWords {
                 boolean powerEntered = false;
                 if (number.charAt(idx) != '0') {
                     res.append(wordMap.get(number.charAt(idx) - '0')).append(" ");
-                    res.append(hundred).append(" ");
+                    res.append(powerMap.get(2)).append(" ");
                     powerEntered = true;
                 }
                 idx++;
