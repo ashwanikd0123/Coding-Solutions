@@ -2,8 +2,8 @@ import java.util.HashMap;
 
 public class IntegerToEnglishWords {
     class Solution {
-        private static HashMap<Integer, String> wordMap;
-        private static HashMap<Integer, String> powerMap;
+        private static final HashMap<Integer, String> wordMap;
+        private static final HashMap<Integer, String> powerMap;
 
         static {
             wordMap = new HashMap<>();
