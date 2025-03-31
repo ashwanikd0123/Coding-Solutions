@@ -51,29 +51,29 @@ public class ApplyOperationsToMaximizeScore {
 
             Stack<Integer> stack = new Stack<>();
 
-            int[] left = new int[n];
+            int[] prevGreaterOrEqualLeft = new int[n];
             for (int i = 0; i < n; i++) {
                 while (!stack.isEmpty() && score[stack.peek()] < score[i]) {
                     stack.pop();
                 }
                 if (stack.isEmpty()) {
-                    left[i] = -1;
+                    prevGreaterOrEqualLeft[i] = -1;
                 } else {
-                    left[i] = stack.peek();
+                    prevGreaterOrEqualLeft[i] = stack.peek();
                 }
                 stack.push(i);
             }
 
             stack.clear();
-            int[] right = new int[n];
+            int[] nextGreaterRight = new int[n];
             for (int i = n - 1; i >= 0; i--) {
                 while (!stack.isEmpty() && score[stack.peek()] <= score[i]) {
                     stack.pop();
                 }
                 if (stack.isEmpty()) {
-                    right[i] = n;
+                    nextGreaterRight[i] = n;
                 } else {
-                    right[i] = stack.peek();
+                    nextGreaterRight[i] = stack.peek();
                 }
                 stack.push(i);
             }
@@ -86,8 +86,8 @@ public class ApplyOperationsToMaximizeScore {
             long finalScore = 1;
             while (!pq.isEmpty()) {
                 int i = pq.poll();
-                long leftCount = i - left[i];
-                long rightCount = right[i] - i;
+                long leftCount = i - prevGreaterOrEqualLeft[i];
+                long rightCount = nextGreaterRight[i] - i;
                 long maxPossibleCount = leftCount * rightCount;
                 if (maxPossibleCount < k) {
                     finalScore = (finalScore * pow(nums[i], maxPossibleCount)) % MOD;
