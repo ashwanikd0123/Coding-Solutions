@@ -1,7 +1,6 @@
 import java.util.PriorityQueue;
 
 public class TrappingRainWaterTwo {
-    import java.util.PriorityQueue;
 
     class Solution {
 
