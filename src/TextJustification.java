@@ -7,21 +7,17 @@ public class TextJustification {
             StringBuilder res = new StringBuilder();
 
             if (i == j) {
-
                 res.append(words[i]);
                 res.append(" ".repeat(maxLength - res.length()));
-
                 return res.toString();
             }
 
             if (j == words.length - 1) {
-
                 while (i < j) {
                     res.append(words[i]);
                     res.append(" ");
                     i++;
                 }
-
                 res.append(words[j]);
             } else {
                 int spaces = maxLength - charSize;

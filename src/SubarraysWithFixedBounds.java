@@ -18,7 +18,6 @@ public class SubarraysWithFixedBounds {
 
             if (nums[i] < minK || nums[i] > maxK) {
                 culprit = i;
-                continue;
             }
 
             long minStartIdx = Math.min(minPos, maxPos);
