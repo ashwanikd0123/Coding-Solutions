@@ -24,9 +24,9 @@ public class FindCountOfGoodIntegers {
                 String left = Integer.toString(x);
                 String num = "";
                 if (n % 2 == 0) {
-                    num = new StringBuilder(left).append(new StringBuilder(left).reverse()).toString();
+                    num = left + new StringBuilder(left).reverse();
                 } else {
-                    num = new StringBuilder(left).append(new StringBuilder(left.substring(0, d - 1)).reverse()).toString();
+                    num = left + new StringBuilder(left.substring(0, d - 1)).reverse();
                 }
                 long value = Long.parseLong(num);
                 if (value % k == 0) {
