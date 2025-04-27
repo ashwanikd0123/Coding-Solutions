@@ -11,7 +11,7 @@ public class SegmentTree {
         return query(st, 0, 0, n - 1, l, r);
     }
 
-    private static int query(int[] st,int i, int l, int r, int rangeL, int rangeR) {
+    private static int query(int[] st, int i, int l, int r, int rangeL, int rangeR) {
         if (r < rangeL || l > rangeR) {
             return Integer.MAX_VALUE;
         }

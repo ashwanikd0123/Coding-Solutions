@@ -5,7 +5,7 @@ public class BurstBalloons {
     class SolutionRecursive {
 
         int solve(int[] nums, int[][] dp, int start, int end) {
-            if (start > end || start < 0 || end < 0 || start >= nums.length || end >= nums.length) {
+            if (start > end || start < 0 || start >= nums.length || end >= nums.length) {
                 return 0;
             }
 
