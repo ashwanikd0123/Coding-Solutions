@@ -10,13 +10,11 @@ public class EvaluateDivision {
 
         double dfs(HashMap<String, HashMap<String, Double>> adj, HashSet<String> visited,
                    String node, String target, double value) {
-            System.out.println(node + " " + value);
             if (!adj.containsKey(node)) {
                 return INVALID;
             }
 
             if (adj.get(node).containsKey(target)) {
-                System.out.println(target + " " + value * adj.get(node).get(target));
                 return value * adj.get(node).get(target);
             }
 
