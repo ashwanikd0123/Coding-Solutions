@@ -38,8 +38,8 @@ public class EvaluateDivision {
                 String num = equations.get(i).get(0);
                 String den = equations.get(i).get(1);
 
-                adj.computeIfAbsent(num, k -> new HashMap<>()).put(den, values[i]);
-                adj.computeIfAbsent(den, k -> new HashMap<>()).put(num, 1.0 / values[i]);
+                adj.computeIfAbsent(num, _ -> new HashMap<>()).put(den, values[i]);
+                adj.computeIfAbsent(den, _ -> new HashMap<>()).put(num, 1.0 / values[i]);
             }
 
             double[] res = new double[queries.size()];
