@@ -30,9 +30,7 @@ public class MultiplyTwoStrings {
             }
             res.reverse();
 
-            for (int i = 0; i < trailZeroCount; i++) {
-                res.append('0');
-            }
+            res.append("0".repeat(Math.max(0, trailZeroCount)));
 
             return res.toString();
         }
